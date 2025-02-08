@@ -1,4 +1,4 @@
-package com.vectoredu.backend.dto.request;
+package com.vectoredu.backend.dto.request.authenticationRequestDto;
 
 import com.vectoredu.backend.util.validators.ValidEmail;
 import com.vectoredu.backend.util.validators.ValidPassword;

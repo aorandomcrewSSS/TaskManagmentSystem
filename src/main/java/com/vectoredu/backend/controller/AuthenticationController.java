@@ -1,9 +1,9 @@
 package com.vectoredu.backend.controller;
 
-import com.vectoredu.backend.dto.request.LoginUserDto;
-import com.vectoredu.backend.dto.request.RefreshToken;
-import com.vectoredu.backend.dto.request.RegisterUserDto;
-import com.vectoredu.backend.dto.request.VerifyUserDto;
+import com.vectoredu.backend.dto.request.authenticationRequestDto.LoginUserDto;
+import com.vectoredu.backend.dto.request.authenticationRequestDto.RefreshToken;
+import com.vectoredu.backend.dto.request.authenticationRequestDto.RegisterUserDto;
+import com.vectoredu.backend.dto.request.authenticationRequestDto.VerifyUserDto;
 import com.vectoredu.backend.dto.response.LoginResponse;
 import com.vectoredu.backend.model.User;
 import com.vectoredu.backend.service.AuthenticationService;

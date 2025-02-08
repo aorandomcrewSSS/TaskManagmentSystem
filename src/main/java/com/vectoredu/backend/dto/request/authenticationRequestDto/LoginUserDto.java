@@ -1,4 +1,4 @@
-package com.vectoredu.backend.dto.request;
+package com.vectoredu.backend.dto.request.authenticationRequestDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class RefreshToken {
-    private String token;
+public class LoginUserDto {
+    private String email;
+    private String password;
 }

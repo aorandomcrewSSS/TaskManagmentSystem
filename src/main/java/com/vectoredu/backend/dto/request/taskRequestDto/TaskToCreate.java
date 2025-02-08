@@ -1,4 +1,4 @@
-package com.vectoredu.backend.dto.request;
+package com.vectoredu.backend.dto.request.taskRequestDto;
 
 import com.vectoredu.backend.model.enums.Priority;
 import lombok.AllArgsConstructor;

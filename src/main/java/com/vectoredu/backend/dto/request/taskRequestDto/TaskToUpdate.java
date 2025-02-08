@@ -1,4 +1,4 @@
-package com.vectoredu.backend.dto.response;
+package com.vectoredu.backend.dto.request.taskRequestDto;
 
 import com.vectoredu.backend.model.enums.Priority;
 import com.vectoredu.backend.model.enums.Status;
@@ -8,25 +8,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 @Data
 @Accessors(chain=true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TaskResponse {
+public class TaskToUpdate {
+
     private String title;
 
     private String description;
 
     private Priority priority;
 
-    private String assigneeFirstName;
-
-    private String assigneeLastName;
-
     private Status status;
 
-    private List<CommentResponse> comments;
+    private String assigneeEmail;
 }
