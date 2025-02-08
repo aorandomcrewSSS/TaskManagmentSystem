@@ -5,6 +5,7 @@ import com.vectoredu.backend.dto.request.RegisterUserDto;
 import com.vectoredu.backend.dto.request.VerifyUserDto;
 import com.vectoredu.backend.dto.response.LoginResponse;
 import com.vectoredu.backend.model.User;
+import com.vectoredu.backend.model.enums.Role;
 import com.vectoredu.backend.repository.UserRepository;
 import com.vectoredu.backend.util.exception.*;
 import com.vectoredu.backend.util.validators.EmailValidator;
@@ -97,11 +98,11 @@ public class AuthenticationService {
 
     // Валидация ввода при регистрации
     private void validateSignupInput(RegisterUserDto input) {
-        if(input.getFirstName().isBlank()){
+        if (input.getFirstName().isBlank()) {
             throw new ValidationException("Поле с именем не может быть пустым");
         }
 
-        if(input.getLastName().isBlank()){
+        if (input.getLastName().isBlank()) {
             throw new ValidationException("Поле с фамилией не может быть пустым");
         }
 
@@ -140,6 +141,7 @@ public class AuthenticationService {
                 .lastName(input.getLastName())
                 .email(input.getEmail())
                 .password(encodedPassword)
+                .role(Role.USER)
                 .verificationCode(generateVerificationCode())
                 .verificationCodeExpiresAt(LocalDateTime.now().plusMinutes(15))
                 .enabled(false)
@@ -152,7 +154,7 @@ public class AuthenticationService {
 
     private User findUserByEmail(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new UserException("Пользователь не найден"));
+                .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
     }
 
     private void checkUserEnabled(User user) {

@@ -6,7 +6,7 @@ import com.vectoredu.backend.repository.PasswordResetTokenRepository;
 import com.vectoredu.backend.repository.UserRepository;
 import com.vectoredu.backend.service.EmailService;
 import com.vectoredu.backend.service.PasswordService;
-import com.vectoredu.backend.util.exception.UserException;
+import com.vectoredu.backend.util.exception.NotFoundException;
 import com.vectoredu.backend.util.exception.ValidationException;
 import com.vectoredu.backend.util.validators.PasswordValidator;
 import jakarta.mail.MessagingException;
@@ -64,7 +64,7 @@ class PasswordServiceTest {
 
         when(userRepository.findByEmail(email)).thenReturn(Optional.empty());
 
-        assertThrows(UserException.class, () -> passwordService.requestPasswordReset(email));
+        assertThrows(NotFoundException.class, () -> passwordService.requestPasswordReset(email));
         verify(passwordResetTokenRepository, never()).deleteByUser(any());
         verify(emailService, never()).sendVerificationEmail(any(), any(), any());
     }
