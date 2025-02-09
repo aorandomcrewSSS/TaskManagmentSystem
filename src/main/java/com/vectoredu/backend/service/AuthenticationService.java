@@ -10,6 +10,7 @@ import com.vectoredu.backend.repository.UserRepository;
 import com.vectoredu.backend.util.exception.*;
 import com.vectoredu.backend.util.validators.EmailValidator;
 import com.vectoredu.backend.util.validators.PasswordValidator;
+import jakarta.annotation.PostConstruct;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,26 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final EmailValidator emailValidator;
     private final PasswordValidator passwordValidator;
-    private final PasswordService passwordService;  // Сервис для работы с паролем
+    private final PasswordService passwordService;
+
+    @PostConstruct
+    public void createAdminIfNotExists() {
+        Optional<User> adminOptional = userRepository.findByEmail("admin@example.com");
+        if (adminOptional.isEmpty()) {
+            User admin = User.builder()
+                    .firstName("Admin")
+                    .lastName("Admin")
+                    .email("admin@example.com")
+                    .password(passwordEncoder.encode("Admin1234"))  // Замените на безопасный пароль
+                    .role(Role.ADMIN)
+                    .enabled(true)
+                    .build();
+            userRepository.save(admin);
+            log.info("Администратор успешно создан");
+        } else {
+            log.info("Администратор уже существует");
+        }
+    }
 
     // Регистрация пользователя
     public User signup(RegisterUserDto input) {
