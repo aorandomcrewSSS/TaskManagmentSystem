@@ -188,6 +188,7 @@ public class AdminService {
 
     private TaskResponse mapToTaskResponse(Task task) {
         return TaskResponse.builder()
+                .id(task.getId())
                 .title(task.getTitle())
                 .description(task.getDescription())
                 .assigneeFirstName(task.getAssignee().getFirstName())

@@ -13,6 +13,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Builder
 public class TaskToCreate {
+
     private String title;
 
     private String description;
