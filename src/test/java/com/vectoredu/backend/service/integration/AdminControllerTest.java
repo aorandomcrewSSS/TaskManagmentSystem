@@ -63,12 +63,10 @@ public class AdminControllerTest extends AbstractIntegrationTest {
 
     @AfterEach
     public void clearDatabase() {
-        jdbcTemplate.execute("""
-            DELETE FROM reset_password;
-            DELETE FROM users;
-            DELETE FROM tasks;
-            DELETE FROM comments;
-        """);
+        jdbcTemplate.execute("DELETE FROM comments;");
+        jdbcTemplate.execute("DELETE FROM tasks;");
+        jdbcTemplate.execute("DELETE FROM reset_password;");
+        jdbcTemplate.execute("DELETE FROM users;");
     }
 
     @Test
