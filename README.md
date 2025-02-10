@@ -17,7 +17,8 @@
 
 После вам выдадут пароль, который необходимо использовать в переменных окружения. 
 
-<img width="533" alt="image" src="https://github.com/user-attachments/assets/f1e22c74-e885-4fa2-92a9-f55956f60348" />
+<img width="545" alt="image" src="https://github.com/user-attachments/assets/2801876b-431c-4efb-8637-05a6f863cf35" />
+
 
 
 ## Переменные окружения
@@ -50,7 +51,8 @@ APP_PASSWORD=ПАРОЛЬ
 
 Пройдите аутентификацию под своим учетными данными, скопируйте jwt-токен и вставьте его в authorize в swagger-ui.
 
-![image](https://github.com/user-attachments/assets/0fc19bc4-f904-4fe2-a890-547510d0d521)
+<img width="175" alt="image" src="https://github.com/user-attachments/assets/f892f726-d083-4440-a2e2-9b5c7689b792" />
+
 
 После чего вы получите доступ ко всем end-поинтам пользователя.
 
