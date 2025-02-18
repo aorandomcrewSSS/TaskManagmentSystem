@@ -8,7 +8,7 @@
 - Spring Boot
 - Spring Data JPA
 - Spring Security + jwt
-- PosstgreSQL
+- PostgreSQL
 - Swagger/OpenAPI
 - Docker Compose
 
